@@ -3,10 +3,7 @@ const container = document.getElementById("container");
 let grid = [];
 let pixel;
 let newGrid;
-
-//div
-let divDimensions;
-
+console.log(typeof grid); //why is this an object?
 function createDivSize() {
     let div = document.querySelectorAll("div");
     for(let i = 0; i < div.length; i++) {
@@ -21,7 +18,7 @@ function makeGridSquares(width, height) {
         grid.push(pixel);
         container.appendChild(pixel);  
     }
-    divDimensions = 600/width;
+    divDimensions = 800/width;
     createDivSize();
 }
 
@@ -41,6 +38,7 @@ function createCustomGrid() {
             newGrid = prompt("Sorry, that number is too large. Try a number less than 100.");
         }
     } */ else {
+        grid.splice(0, grid.length);
         makeGridSquares(newGrid, newGrid);
         container.style.gridTemplateColumns = `repeat(${newGrid}, 1fr)`;
         container.style.gridTemplateRows = `repeat(${newGrid}, 1fr)`;

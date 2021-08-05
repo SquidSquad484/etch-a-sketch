@@ -4,16 +4,17 @@
 }
 
 #container {
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: 800px;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-}
-
-div {
     border: 1px solid black;
 }
+
+/* div {
+    border: 0.1em solid black;
+} */
 
 .black-background {
     background-color: black;
