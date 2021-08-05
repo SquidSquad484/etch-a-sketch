@@ -44,7 +44,9 @@ function createCustomGrid() {
         makeGridSquares(newGrid, newGrid);
         container.style.gridTemplateColumns = `repeat(${newGrid}, 1fr)`;
         container.style.gridTemplateRows = `repeat(${newGrid}, 1fr)`;
-        
+        for(let i = 0; i < grid.length; i++) {
+            grid[i].classList.remove("black-background");
+        }
         container.style.display = "grid";
     }
 }
