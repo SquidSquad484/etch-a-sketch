@@ -1,9 +1,8 @@
-//grid
 const container = document.getElementById("container");
 let grid = [];
 let pixel;
 let newGrid;
-console.log(typeof grid); //why is this an object?
+
 function createDivSize() {
     let div = document.querySelectorAll("div");
     for(let i = 0; i < div.length; i++) {
@@ -33,11 +32,27 @@ function turnPixelsBlack() {
 function createCustomGrid() {
     if (newGrid == null) {
         container.style.display = "grid";
-    } /* else if (newGrid > 100) {
+    } else if (newGrid > 100) {
+        newGrid = prompt("Sorry, that number is too large. Try a number less than 100.");
         while (newGrid > 100) {
             newGrid = prompt("Sorry, that number is too large. Try a number less than 100.");
+            if (newGrid < 100 && newGrid == !null) {
+                grid.splice(0, grid.length);
+                makeGridSquares(newGrid, newGrid);
+                container.style.gridTemplateColumns = `repeat(${newGrid}, 1fr)`;
+                container.style.gridTemplateRows = `repeat(${newGrid}, 1fr)`;
+                for(let i = 0; i < grid.length; i++) {
+                grid[i].classList.remove("black-background");
+                container.style.display = "grid";
+                }
+            } else if (newGrid == null) {
+                container.style.display = "grid";
+            }
         }
-    } */ else {
+    } else {
+        for(let i = 0; i < grid.length; i++) {
+            container.removeChild(grid[i]);
+        }   
         grid.splice(0, grid.length);
         makeGridSquares(newGrid, newGrid);
         container.style.gridTemplateColumns = `repeat(${newGrid}, 1fr)`;
@@ -63,9 +78,15 @@ newGridButton.addEventListener("click", () => {
 
 /* 
 when click button
-make grid invisible/take off styles for #container
-and create a popup asking for a number less than 100
+clear grid
+and create a popup asking for a number 
+  - less than 100
 
-create function
 let the user's answer create a new grid with those dimensions
 */
+
+/* Etch a sketch project: on the part where you create a new grid based on the dimensions of the answer in the window popup. 
+When I enter a number in the popup the old grid (along with the previous colored pixels) remains on top (and I'm unable to draw on that part) while the new grid goes below the old grid, overflowing the container. 
+In the way I did the project, I created an empty array called grid and pushed each new div into the array. So, I thought emptying/clearing grid, then running the function that pushed the new divs into grid again would work. 
+I also tried the code without emptying grid and oddly, I can draw on the old grid and the new grid (the new grid still overflows the container).
+I tried looking at the debugger but still can't seem to find out what the problem is.  */
