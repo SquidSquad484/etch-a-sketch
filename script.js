@@ -34,25 +34,31 @@ function createCustomGrid() {
         container.style.display = "grid";
     } else if (newGrid > 100) {
         newGrid = prompt("Sorry, that number is too large. Try a number less than 100.");
-        while (newGrid > 100) {
-            newGrid = prompt("Sorry, that number is too large. Try a number less than 100.");
-            if (newGrid < 100 && newGrid == !null) {
+        if (newGrid == null) {
+            container.style.display = "grid";
+        } else {
+            if (newGrid < 100) {
+                for(let i = 0; i < grid.length; i++) {
+                    container.removeChild(grid[i]);
+                }
                 grid.splice(0, grid.length);
                 makeGridSquares(newGrid, newGrid);
                 container.style.gridTemplateColumns = `repeat(${newGrid}, 1fr)`;
                 container.style.gridTemplateRows = `repeat(${newGrid}, 1fr)`;
                 for(let i = 0; i < grid.length; i++) {
-                grid[i].classList.remove("black-background");
-                container.style.display = "grid";
+                    grid[i].classList.remove("black-background");
                 }
-            } else if (newGrid == null) {
                 container.style.display = "grid";
+            } else {
+                while (newGrid > 100) {
+                    newGrid = prompt("Sorry, that number is too large. Try a number less than 100.");
+                }
             }
         }
     } else {
         for(let i = 0; i < grid.length; i++) {
             container.removeChild(grid[i]);
-        }   
+        }
         grid.splice(0, grid.length);
         makeGridSquares(newGrid, newGrid);
         container.style.gridTemplateColumns = `repeat(${newGrid}, 1fr)`;
