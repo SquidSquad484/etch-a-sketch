@@ -29,6 +29,25 @@ function turnPixelsBlack() {
     }
 }
 
+function turnPixelsRainbow() {
+    for(let i = 0; i < grid.length; i++) {
+        grid[i].addEventListener("mouseover", () => {
+            /* for (let i = 0; i < 9; i++) {} */
+            grid.style.backgroundColor = chooseRandomColor();
+        });
+    }
+}
+
+function chooseRandomColor() {
+    let color = Math.floor(Math.random() * 1000);
+    for (let i = 1; i < 1000; i++) {
+        if (color == i) {
+            color.style.color = `rgb(${i}, ${i}, ${i})`;
+        }
+    }
+    return color;
+}
+
 function createCustomGrid() {
     if (newGrid == null) {
         container.style.display = "grid";
@@ -81,6 +100,13 @@ newGridButton.addEventListener("click", () => {
     turnPixelsBlack();
 });
 
+const crazyRainbowButton = document.getElementById("rainbow");
+crazyRainbowButton.addEventListener("click", () => {
+    for(let i = 0; i < grid.length; i++) {
+        grid[i].classList.remove("black-background");
+    }
+    turnPixelsRainbow();
+});
 
 /* 
 when click button
@@ -91,8 +117,7 @@ and create a popup asking for a number
 let the user's answer create a new grid with those dimensions
 */
 
-/* Etch a sketch project: on the part where you create a new grid based on the dimensions of the answer in the window popup. 
-When I enter a number in the popup the old grid (along with the previous colored pixels) remains on top (and I'm unable to draw on that part) while the new grid goes below the old grid, overflowing the container. 
-In the way I did the project, I created an empty array called grid and pushed each new div into the array. So, I thought emptying/clearing grid, then running the function that pushed the new divs into grid again would work. 
-I also tried the code without emptying grid and oddly, I can draw on the old grid and the new grid (the new grid still overflows the container).
-I tried looking at the debugger but still can't seem to find out what the problem is.  */
+/* Rainbow Mode:
+function: choose random color
+when mouse cursor is on pixel, call function
+after 10 times of mouse cursor on pixel, change to black*/
