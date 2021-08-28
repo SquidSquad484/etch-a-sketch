@@ -7,11 +7,25 @@ body {
     display: grid;
     justify-items: center;
     align-items: center;
+    
+}
+
+#title {
+    width: 100vw;
+    height: 3em;
+    background-color: rgb(179, 141, 230);
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Allison', cursive;
+    font-size: 2.4em;
+    color: rgb(0, 0, 0);
 }
 
 #container {
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 700px;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
@@ -38,9 +52,12 @@ img {
     object-fit: contain;
     position: relative;
     top: -3em;
+    z-index: -1;
 }
 
 #button-text {
     position: absolute;
-    top: 1.9em;
+    top: 2.3em;
+    font-family: 'Allison', cursive;
+    font-size: 1.8em;
 }

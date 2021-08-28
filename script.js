@@ -17,7 +17,7 @@ function makeGridSquares(width, height) {
         grid.push(pixel);
         container.appendChild(pixel);  
     }
-    divDimensions = 800/width;
+    divDimensions = 700/width;
     createDivSize();
 }
 
