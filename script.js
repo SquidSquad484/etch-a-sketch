@@ -29,25 +29,6 @@ function turnPixelsBlack() {
     }
 }
 
-function turnPixelsRainbow() {
-    for(let i = 0; i < grid.length; i++) {
-        grid[i].addEventListener("mouseover", () => {
-            /* for (let i = 0; i < 9; i++) {} */
-            grid.style.backgroundColor = chooseRandomColor();
-        });
-    }
-}
-
-function chooseRandomColor() {
-    let color = Math.floor(Math.random() * 1000);
-    for (let i = 1; i < 1000; i++) {
-        if (color == i) {
-            color.style.color = `rgb(${i}, ${i}, ${i})`;
-        }
-    }
-    return color;
-}
-
 function createCustomGrid() {
     if (newGrid == null) {
         container.style.display = "grid";
@@ -89,8 +70,10 @@ function createCustomGrid() {
     }
 }
 
-makeGridSquares(16, 16);
-turnPixelsBlack();
+window.addEventListener("load", () => {
+    makeGridSquares(16, 16);
+    turnPixelsBlack();
+});
 
 const newGridButton = document.getElementById("clear-new");
 newGridButton.addEventListener("click", () => {
@@ -99,25 +82,3 @@ newGridButton.addEventListener("click", () => {
     createCustomGrid();
     turnPixelsBlack();
 });
-
-const crazyRainbowButton = document.getElementById("rainbow");
-crazyRainbowButton.addEventListener("click", () => {
-    for(let i = 0; i < grid.length; i++) {
-        grid[i].classList.remove("black-background");
-    }
-    turnPixelsRainbow();
-});
-
-/* 
-when click button
-clear grid
-and create a popup asking for a number 
-  - less than 100
-
-let the user's answer create a new grid with those dimensions
-*/
-
-/* Rainbow Mode:
-function: choose random color
-when mouse cursor is on pixel, call function
-after 10 times of mouse cursor on pixel, change to black*/

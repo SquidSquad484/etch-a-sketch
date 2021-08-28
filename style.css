@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+body {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
 #container {
     width: 800px;
     height: 800px;
@@ -12,6 +18,29 @@
     border: 1px solid black;
 }
 
+#clear-new {
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+    width: 20em;
+    height: 2em;
+    border: none;
+    background-color: transparent;
+}
+
 .black-background {
     background-color: black;
+}
+
+img {
+    transform: rotate(-46deg);
+    width: inherit;
+    height: 8em;
+    object-fit: contain;
+    position: relative;
+    top: -3em;
+}
+
+#button-text {
+    position: absolute;
+    top: 1.9em;
 }
