@@ -7,7 +7,7 @@ body {
     display: grid;
     justify-items: center;
     align-items: center;
-    
+    background: url(Ink-Background.jpg) 100vh 100vw;
 }
 
 #title {
@@ -30,6 +30,7 @@ h1 {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     border: 1px solid black;
+    background: url(Rough-Paper-Background.jpg);
 }
 
 #clear-new {
@@ -60,4 +61,16 @@ img {
     top: 2.3em;
     font-family: 'Allison', cursive;
     font-size: 1.8em;
+}
+
+#photo-credit {
+    font-family: 'Times New Roman', sans-serif;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 0.1em;
+    left: 0.1em;
+}
+
+a {
+    color: rgb(130, 130, 255);
 }
